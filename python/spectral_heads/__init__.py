@@ -13,7 +13,7 @@ Usage:
     # Step 2: get the pruning list (use the CLI or pure Python)
     heads = recommend_pruning("keys.json", ratio=0.10)
 """
-from .core import measure, recommend_pruning, HeadScore
+from .core import measure, recommend_pruning, format_prune_code, HeadScore
 
 __version__ = "0.1.0"
-__all__ = ["measure", "recommend_pruning", "HeadScore"]
+__all__ = ["measure", "recommend_pruning", "format_prune_code", "HeadScore"]
