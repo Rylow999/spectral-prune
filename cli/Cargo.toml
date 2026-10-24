@@ -1,0 +1,15 @@
+[package]
+name = "spectral-prune-cli"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+authors.workspace = true
+description = "Zero-training attention head pruning via spectral analysis of key-grams"
+repository.workspace = true
+
+[[bin]]
+name = "spectral-prune"
+path = "src/main.rs"
+
+[dependencies]
+# No dependencies: pure std, like fhrr-resilient

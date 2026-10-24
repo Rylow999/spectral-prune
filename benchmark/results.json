@@ -1,0 +1,29 @@
+{
+  "benchmark": "spectral-prune vs Michel et al. (2019) vs random",
+  "date": "2026-10-24",
+  "model": "GPT-2 124M",
+  "eval": "diverse text, sliding-window perplexity",
+  "results": {
+    "5%": {
+      "spectral": 166,
+      "michel": 251,
+      "random": 1123
+    },
+    "10%": {
+      "spectral": 775,
+      "michel": 1223,
+      "random": 1849
+    },
+    "15%": {
+      "spectral": 4188,
+      "michel": 3622,
+      "random": 10376
+    }
+  },
+  "cost_seconds": {
+    "spectral": 0.61,
+    "michel": 3.49,
+    "random": 0.0
+  },
+  "note": "Full experiment data in Rylow999/fhrr-rho-collapse experiments/data_exp42_benchmark.json"
+}

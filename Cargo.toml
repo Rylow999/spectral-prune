@@ -1,0 +1,10 @@
+[workspace]
+members = ["cli"]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+authors = ["Luciano Benjamin Nieto"]
+repository = "https://github.com/Rylow999/spectral-prune"
