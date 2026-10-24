@@ -58,13 +58,20 @@ This is the opposite of what you might expect — and we know, because our own i
 
 ## Benchmark
 
-| Method | 5% prune | 10% prune | Cost | Calibration data |
-|---|---|---|---|---|
-| **Spectral (this)** | **ppl 166** | **ppl 775** | **0.61s** | **none** |
-| Gradient (Michel 2019) | ppl 251 | ppl 1,223 | 3.49s | required |
-| Random | ppl 1,123 | ppl 1,849 | 0s | none |
+| Method | 5% prune | 10% prune | 15% prune | Cost | Calibration data |
+|---|---|---|---|---|---|
+| **Activation norm** | **ppl 152** | **ppl 765** | ppl 10,626 | 0.68s | one context |
+| **Spectral (this)** | ppl 166 | ppl 775 | **ppl 4,189** | **0.61s** | one context |
+| Gradient (Michel 2019) | ppl 251 | ppl 1,223 | **ppl 3,622** | 3.49s | required |
+| Random | ppl 1,123 | ppl 1,849 | ppl 10,376 | 0s | none |
 
 GPT-2 124M, diverse text, sliding-window perplexity. Full methodology in `benchmark/`.
+
+**Honest comparison:** the activation-norm proxy (a simple, known baseline) matches
+spectral closely at 5-10% pruning rates. Spectral's advantage emerges at 15%+ where
+activation-norm degrades catastrophically (10,626 vs 4,189). If you only need 5-10%
+pruning, activation-norm is equivalent and equally cheap; if you need robustness
+at higher rates, spectral is the better choice. Both require one forward pass.
 
 ## The science
 
